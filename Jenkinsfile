@@ -27,7 +27,7 @@ pipeline
 			{
 			 steps
 				{
-				  sh 'docker build -t tomcat .' 
+				  sh ' sudo docker build -t tomcat .' 
 				}
 			}
                    
