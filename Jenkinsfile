@@ -23,7 +23,7 @@ pipeline
 					}
 				}
             }
-			stage
+			stage ('Docker')
 			{
 			 steps
 				{
