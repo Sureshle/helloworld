@@ -32,7 +32,7 @@ stage ('copy')
 			{
 			steps
 			{
-				sh ' docker login --username sureshle --password pas@1234 '
+				sh ' docker login --username sureshle --password pass@1234 '
 			sh ' sudo docker push sureshle/tomcatdeploy:latest '
 			}
 			}
