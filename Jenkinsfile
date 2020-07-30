@@ -24,7 +24,7 @@ pipeline
 			{
 			steps
 			{
-			sh ' sudo docker push sureshle/tomcatdeploy:latest
+			sh ' sudo docker push sureshle/tomcatdeploy:latest '
 			}
 			}
         }
