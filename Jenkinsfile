@@ -19,6 +19,13 @@ pipeline
 				  sh ' sudo docker build -t tomcat .' 
 				}
 			}
+			stage ('copy')
+			{
+			 steps
+				{
+				  sh ' cp /gitlearning/jenkins/helloworld.war /gitlearning/jenkins/workspace/Dockerdeploy/' 
+				}
+			}
            
 			stage ('Push')
 			{
