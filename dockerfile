@@ -1,6 +1,6 @@
 FROM tomcat:8.0-alpine
 
-ADD ./helloworld.war /usr/local/tomcat/webapps/
+ADD /gitlearning/jenkins/helloworld.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
 
