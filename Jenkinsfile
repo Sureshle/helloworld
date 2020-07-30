@@ -5,32 +5,28 @@ pipeline
  {
     node 
         {
-            label 'Maven'
+            label 'k8s'
         
         }
     }
     stages 
         {
 
-           stage('Build') 
-            {
-
-              steps 
-                {
-                   withMaven(jdk: 'JAVA', maven: 'maven') 
-					{
-						sh'mvn clean install'
-					}
-				}
-            }
-			stage ('Docker')
+           	stage ('Docker')
 			{
 			 steps
 				{
 				  sh ' sudo docker build -t tomcat .' 
 				}
 			}
-                   
+           
+			stage ('Push')
+			{
+			steps
+			{
+			sh ' sudo docker push sureshle/tomcatdeploy:latest
+			}
+			}
         }
             
 }
