@@ -23,7 +23,7 @@ stage ('copy')
 			{
 			 steps
 				{
-				  sh ' sudo docker build -t tomcat .' 
+				  sh ' docker build -t tomcat .' 
 				}
 			}
 			
@@ -34,7 +34,7 @@ stage ('copy')
 			{
 				sh 'docker tag tomcat:latest sureshle/tomcatdeploy:latest '
 				sh ' docker login --username sureshle --password pass@1234 '
-			sh ' sudo docker push sureshle/tomcatdeploy:latest '
+			sh ' docker push sureshle/tomcatdeploy:latest '
 			}
 			}
         }
