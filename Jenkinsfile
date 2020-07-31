@@ -29,17 +29,18 @@ pipeline
            
 			stage ('Push')
 			{
-			steps
-			{
+				steps
+				{
 			sh ' docker push sureshle/tomcatdeploy:latest '
+				}
 			}
 			stage ('K8S')
-			{
-			steps
-			{
-			sh ' kubectl create -f deploy.yaml '
-			}
-			}
+				{
+				steps
+				{
+				sh ' kubectl create -f deploy.yaml '
+				}
+				}
         }
             
 }
