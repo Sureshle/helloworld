@@ -11,30 +11,33 @@ pipeline
     }
     stages 
         {
-stage ('copy')
+
+           	stage ('Docker')
+			{
+			 steps
+				{
+				  sh ' sudo docker build -t tomcat .' 
+				}
+			}
+			stage ('copy')
 			{
 			 steps
 				{
 				  sh ' cp /gitlearning/jenkins/helloworld.war /gitlearning/jenkins/workspace/Dockerdeploy/' 
 				}
 			}
-		
-           	stage ('Docker')
-			{
-			 steps
-				{
-				  sh ' docker build -t tomcat .' 
-				}
-			}
-			
            
 			stage ('Push')
 			{
 			steps
 			{
-				sh 'docker tag tomcat:latest sureshle/tomcatdeploy:latest '
-				sh ' docker login --username sureshle --password pass@1234 '
 			sh ' docker push sureshle/tomcatdeploy:latest '
+			}
+			stage ('K8S')
+			{
+			steps
+			{
+			sh ' kubectl create -f deploy.yaml '
 			}
 			}
         }
