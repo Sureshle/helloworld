@@ -38,7 +38,7 @@ pipeline
 				{
 				steps
 				{
-				sh ' kubectl create -f deploy.yaml '
+				sh ' kubectl create -f Deploy.yaml '
 				}
 				}
         }
